@@ -1,0 +1,18 @@
+filebeat.inputs:
+  - type: log
+    paths:
+      - /usr/src/app/http-requests.log
+    fields:
+      log_type: pino-http
+
+  - type: log
+    paths:
+      - /usr/src/app/rect-game.log
+    fields:
+      log_type: rect-game
+
+output.logstash:
+  hosts: ["logstash:5044"]
+
+setup.kibana:
+  host: "http://kibana:5601"
